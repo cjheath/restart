@@ -15,6 +15,20 @@ objects to describe a query that delineates the resource. The query result
 is not a single object or array of objects, but a structured mesh or
 constellation of objects.
 
+As a result, you don't need to perform multiple queries to handle a single
+action. As an API provider, you don't need to provide custom aggregate
+queries to support that.
+
+Because a Resource can be arbitrarily complex, traversing into and across
+the entire database, there is no need for more than one request in response
+to any single user action. No more wandering the database processing queries
+to assemble all the items needed to display a dialog; just ask for all the
+items up front. This is a radical and effective way to structure even a
+large application.
+
+Theory and Practise
+===================
+
 RESTart works equally well with NoSQL, SQL and fact-oriented databases.
 RESTart does not make your table or object structures explicit; instead it
 treats a field or column as related to the table/entity in the same way
@@ -33,12 +47,8 @@ although convenience methods allow simple inclusion of predefined groups.
 This also leads to the potential for greater parallelism, because
 non-conflicting transactions can update the same physical tuples.
 
-Because a Resource can be arbitrarily complex, traversing into and across
-the entire database, there is no need for more than one request in response
-to any single user action. No more wandering the database processing queries
-to assemble all the items needed to display a dialog; just ask for all the
-items up front. This is a radical and effective way to structure even a
-large application.
+Example API
+===========
 
 The example code here is for the Javascript binding.
 
